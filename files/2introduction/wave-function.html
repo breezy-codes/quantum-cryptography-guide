@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>1. How do computers classify algorithms? &#8212; Quantum Cryptography Cryptography</title>
+    <title>4. The Wave Function Collapse &#8212; Quantum Cryptography Cryptography</title>
   
   
   
@@ -60,12 +60,11 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'files/2introduction/classifying-computer-algorithms';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'files/2introduction/wave-function';</script>
     <link rel="icon" href="../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="2. Classical vs Quantum Bits" href="classic-vs-qubits.html" />
-    <link rel="prev" title="2. The coin Analogy" href="../1helpful-docs/coin-analogy.html" />
+    <link rel="prev" title="3. Normalisation" href="normalisation.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -190,10 +189,10 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to Quantum Mechanics</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">1. <strong>How do computers classify algorithms?</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="classifying-computer-algorithms.html">1. <strong>How do computers classify algorithms?</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="classic-vs-qubits.html">2. <strong>Classical vs Quantum Bits</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="normalisation.html">3. <strong>Normalisation</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="wave-function.html">4. <strong>The Wave Function Collapse</strong></a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">4. <strong>The Wave Function Collapse</strong></a></li>
 </ul>
 
     </div>
@@ -265,7 +264,7 @@
       
       
       
-      <li><a href="https://github.com/breezy-codes/quantum-cryptography-guide/issues/new?title=Issue%20on%20page%20%2Ffiles/2introduction/classifying-computer-algorithms.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/breezy-codes/quantum-cryptography-guide/issues/new?title=Issue%20on%20page%20%2Ffiles/2introduction/wave-function.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -295,7 +294,7 @@
       
       
       
-      <li><a href="../../_sources/files/2introduction/classifying-computer-algorithms.ipynb" target="_blank"
+      <li><a href="../../_sources/files/2introduction/wave-function.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -379,7 +378,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>How do computers classify algorithms?</h1>
+    <h1>The Wave Function Collapse</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -389,8 +388,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#complexity-classes">1.1. <strong>Complexity Classes</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#factorisation-complexity">1.2. <strong>Factorisation Complexity</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#observer-effect-and-collapse">4.1. <strong>Observer Effect and Collapse</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wave-function-collapse">4.2. <strong>Wave Function Collapse</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explanation">4.2.1. Explanation</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -402,13 +404,34 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="how-do-computers-classify-algorithms">
-<h1><span class="section-number">1. </span><strong>How do computers classify algorithms?</strong><a class="headerlink" href="#how-do-computers-classify-algorithms" title="Link to this heading">#</a></h1>
-<p>In classical computers, an algorithm is classified on how the resources used grow with the size of the input, this is known as an <strong>algorithm’s complexity</strong>. Complexity is expressed as a useful metric function, often using Big O notation, which provides an upper bound performance, ignoring constant factors and lower order terms.</p>
-<p><strong>Time complexity</strong> measures the amount of computational time an algorithm takes to compute as a function of the size n of the input. An algorithm with a time complexity of <span class="math notranslate nohighlight">\(O(n)\)</span> is linear, meaning the time it takes to finish grows linearly with the size n of the input. An algorithm with a time complexity of <span class="math notranslate nohighlight">\(O(n^2)\)</span> is quadratic, meaning the time it takes to finish grows quadratically with the size n of the input.</p>
-<p>Before exploring how quantum computing is working towards changing the classification of algorithms, we must first understand why. Quantum computing is built on quantum physics, which of course is built on physics. Classical physics provides a framework for understanding the universe on a macroscopic scale, encompassing most things we observe in day-to-day life. However, when scientists looked at physics from a microscopic atomic and subatomic scale, they discovered physics couldn’t accurately predict or explain what was observed.</p>
-<p>This led to the development of <strong>quantum mechanics</strong>, a branch of physics whose purpose is to describe the fundamental behaviour of matter and energy on incredibly small scales. Quantum mechanics wasn’t a replacement for physics, but more so a different approach for microscopic level. As the understanding of quantum mechanics grew, computer scientists and engineers realised the potential which led to the invention of quantum computing.</p>
-<p>Quantum computers are rapidly improving, although they aren’t quite there yet when it comes to changing how algorithms are classified. This is due to the limited number of qubits and their noise (think interference) to reach <strong>quantum advantage</strong>, which refers to as the point where a quantum computer can solve a problem more efficiently than a classical computer.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="the-wave-function-collapse">
+<h1><span class="section-number">4. </span><strong>The Wave Function Collapse</strong><a class="headerlink" href="#the-wave-function-collapse" title="Link to this heading">#</a></h1>
+<section id="observer-effect-and-collapse">
+<h2><span class="section-number">4.1. </span><strong>Observer Effect and Collapse</strong><a class="headerlink" href="#observer-effect-and-collapse" title="Link to this heading">#</a></h2>
+<p>Thinking back to our coin analogy previously on superposition, this is the concept where a qubit can exist in a combination of states. However, upon measurement, it collapses into one of those possible states; this observation is known as the observer effect.</p>
+<p>For a qubit:
+$<span class="math notranslate nohighlight">\(\ket{q} = \alpha\ket{0} + \beta\ket{1} \)</span>$</p>
+<p>If <span class="math notranslate nohighlight">\(\ket{q}\)</span> is measured to be in <span class="math notranslate nohighlight">\(\ket{0}\)</span>, the subsequent measurements will consistently return <span class="math notranslate nohighlight">\(\ket{0}\)</span>. This is known as the <strong>wave function collapse</strong>.</p>
+</section>
+<section id="wave-function-collapse">
+<h2><span class="section-number">4.2. </span><strong>Wave Function Collapse</strong><a class="headerlink" href="#wave-function-collapse" title="Link to this heading">#</a></h2>
+<p>The wave function provides a description of the quantum state of a system. Before measurement, the function generally describes a superposition of several possible states. Once measured, the wave function “collapses” to a singular state, which is the result of that measurement.</p>
+<p>This phenomenon is rather mysterious as it contrasts with classical physics. In classical physics, measurements will simply reveal properties that the system already had. However, in quantum physics, measurements can change the state of the system.</p>
+<p>For a qubit described by the state <span class="math notranslate nohighlight">\(\ket{q} = \alpha\ket{0} + \beta\ket{1}\)</span>, where <span class="math notranslate nohighlight">\(|\alpha|^2\)</span> gives the probability of finding the qubit in state <span class="math notranslate nohighlight">\(\ket{0}\)</span> and <span class="math notranslate nohighlight">\(|\beta|^2\)</span> gives the probability of finding the qubit in state <span class="math notranslate nohighlight">\(\ket{1}\)</span>, by doing the following:</p>
+<ol class="arabic simple">
+<li><p>Collapses the state to <span class="math notranslate nohighlight">\(\ket{0}\)</span> with a probability <span class="math notranslate nohighlight">\(|\alpha|^2\)</span>.</p></li>
+<li><p>Collapses the state to <span class="math notranslate nohighlight">\(\ket{1}\)</span> with a probability <span class="math notranslate nohighlight">\(|\beta|^2\)</span>.</p></li>
+</ol>
+<p>Subsequent measurements will now yield the same results. In the following example, the graph is set to measuring the probability of <span class="math notranslate nohighlight">\(\ket{1}\)</span>.</p>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Explanation</p>
+<p><strong>Observer Effect:</strong></p>
+<p>The observer effect in quantum mechanics refers to the fact that the act of measuring a quantum system affects the system. Before measurement, a quantum system can exist in a superposition of states. However, once measured, it collapses into one of the possible states.</p>
+<p><strong>Wave Function:</strong></p>
+<p>The wave function is a mathematical description of the quantum state of a system. It contains all the information about the system’s state and can describe multiple possible outcomes simultaneously through superposition.</p>
+<p><strong>Wave Function Collapse:</strong></p>
+<p>When a measurement is made, the wave function collapses to a single state. This means that the superposition of states reduces to one state, and subsequent measurements will yield the same result. This collapse is what makes quantum mechanics different from classical physics, where measurements do not alter the state of the system.</p>
+</div>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -418,84 +441,73 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-</pre></div>
-</div>
-</div>
-</details>
-</div>
-<section id="complexity-classes">
-<h2><span class="section-number">1.1. </span><strong>Complexity Classes</strong><a class="headerlink" href="#complexity-classes" title="Link to this heading">#</a></h2>
-<p>This graph illustrates different algorithmic complexity classes by plotting the relationship between input size and the number of operations or time required. The complexities include constant, linear, quadratic, and logarithmic, showcasing how they scale with increasing input size.</p>
-<div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
-</summary>
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
-<span class="n">n</span> <span class="o">=</span> <span class="n">n</span><span class="p">[</span><span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span>
-<span class="n">constant</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">n</span><span class="p">]</span>
-<span class="n">linear</span> <span class="o">=</span> <span class="n">n</span>
-<span class="n">quadratic</span> <span class="o">=</span> <span class="n">n</span><span class="o">**</span><span class="mi">2</span>
-<span class="n">logarithmic</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
 
-<span class="c1"># Plot</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.7</span>
+<span class="n">beta</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="nb">abs</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span>
+
+<span class="k">if</span> <span class="n">beta</span><span class="o">.</span><span class="n">imag</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">beta</span> <span class="o">=</span> <span class="n">beta</span><span class="o">.</span><span class="n">real</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">outcome</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">p</span><span class="o">=</span><span class="p">[</span><span class="nb">abs</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="nb">abs</span><span class="p">(</span><span class="n">beta</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">])</span>
+
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">constant</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Constant Time&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">linear</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Linear&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">quadratic</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Quadratic&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">logarithmic</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Logarithmic&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper left&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Input Size n&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Operations (or) Time&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Algorithmic Complexity Classes&quot;</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s2">&quot;bold&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">outcome</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="p">((</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">)),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;lightblue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Probability of $|0⟩$&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">ymin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Collapse to $|0⟩$&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="p">((</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">4</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">)),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;lightgreen&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Probability of $|1⟩$&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mf">4.5</span><span class="p">,</span> <span class="n">ymin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Collapse to $|1⟩$&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Superposition State&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Visualization of Wave Function Collapse&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Possible States&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Probability Amplitude&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s2">&quot;log&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../../_images/106041da3eeac28b9e85aef40ec5818a82ba0907b9cb109623db83ea024943d0.png" src="../../_images/106041da3eeac28b9e85aef40ec5818a82ba0907b9cb109623db83ea024943d0.png" />
+<img alt="../../_images/c7fbb83b056bf4ac2ed34cc529cbaa7e5426de3b4c9aa7740a7a760e4973c3cd.png" src="../../_images/c7fbb83b056bf4ac2ed34cc529cbaa7e5426de3b4c9aa7740a7a760e4973c3cd.png" />
 </div>
+</div>
+<div class="proof algorithm admonition" id="alg-collapse">
+<p class="admonition-title"><span class="caption-number">Algorithm 4.1 </span> (Example: Measuring Probability of State <span class="math notranslate nohighlight">\(\ket{1}\)</span>)</p>
+<section class="algorithm-content" id="proof-content">
+<p><strong>Given Quantum State:</strong> <span class="math notranslate nohighlight">\(|q\rangle = \frac{1}{\sqrt{2}}|0\rangle + \frac{1}{\sqrt{2}}|1\rangle\)</span></p>
+<p><strong>Objective:</strong> Determine the probability of measuring the state <span class="math notranslate nohighlight">\(|1\rangle\)</span> in the given quantum state <span class="math notranslate nohighlight">\(|q\rangle\)</span>.</p>
+<p><strong>Step 1:</strong> Calculate the inner product <span class="math notranslate nohighlight">\(\langle 1|q\rangle\)</span> to find the amplitude of <span class="math notranslate nohighlight">\(|1\rangle\)</span> in <span class="math notranslate nohighlight">\(|q\rangle\)</span>.</p>
+<p><em>Inner product calculation:</em></p>
+<div class="math notranslate nohighlight">
+\[\langle 1|q\rangle = \frac{1}{\sqrt{2}}\langle 1|0\rangle + \frac{1}{\sqrt{2}}\langle 1|1\rangle \]</div>
+<p><em>Expanding using the given state.</em></p>
+<p><strong>Recall:</strong> Orthogonality of basis states implies <span class="math notranslate nohighlight">\(\langle 1|0\rangle = 0\)</span> and <span class="math notranslate nohighlight">\(\langle 1|1\rangle = 1\)</span>. Thus,</p>
+<div class="math notranslate nohighlight">
+\[\langle 1|q\rangle = \frac{1}{\sqrt{2}}.\]</div>
+<p><strong>Step 2:</strong> Calculate the probability of measuring <span class="math notranslate nohighlight">\(|1\rangle\)</span> by squaring the magnitude of the amplitude.
+<em>Probability calculation:</em></p>
+<div class="math notranslate nohighlight">
+\[ p(1) = |\langle 1|q\rangle|^2 = \left|\frac{1}{\sqrt{2}}\right|^2 = \frac{1}{2}.\]</div>
+<p><strong>Conclusion:</strong> The probability of measuring the state <span class="math notranslate nohighlight">\(|1\rangle\)</span> in the quantum state <span class="math notranslate nohighlight">\(|q\rangle\)</span> is <span class="math notranslate nohighlight">\(0.5\)</span> or 50%.</p>
+</section>
+</div><section id="explanation">
+<h3><span class="section-number">4.2.1. </span>Explanation<a class="headerlink" href="#explanation" title="Link to this heading">#</a></h3>
+<p>This example illustrates how to calculate the probability of measuring a specific state for a given quantum state. We start with a quantum state in superposition and use the inner product to find the amplitude of the basis state we are interested in. We then square the magnitude of this amplitude to get the probability of measuring the state. In this case, the state <span class="math notranslate nohighlight">\(|q\rangle\)</span> is a superposition of <span class="math notranslate nohighlight">\(|0\rangle\)</span> and <span class="math notranslate nohighlight">\(|1\rangle\)</span>, and we calculate the probability of measuring <span class="math notranslate nohighlight">\(|1\rangle\)</span>.</p>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Simpler Explanation</p>
+<p>Imagine you have a special coin that can be both heads and tails at the same time. When you look at the coin (measure it), it becomes either heads or tails. Before you look, the coin is in a “superposition” of heads and tails. When you measure the coin, it “collapses” to one of the two outcomes.</p>
+<p>In this example:</p>
+<div class="math notranslate nohighlight">
+\[|q\rangle = \frac{1}{\sqrt{2}}|0\rangle + \frac{1}{\sqrt{2}}|1\rangle\]</div>
+<p>This state means the coin has an equal chance of being heads (state <span class="math notranslate nohighlight">\(|0\rangle\)</span>) or tails (state <span class="math notranslate nohighlight">\(|1\rangle\)</span>). The probability of getting tails is calculated by finding how much of the state’s description is “tails” and squaring it, which gives 50%.</p>
 </div>
 </section>
-<section id="factorisation-complexity">
-<h2><span class="section-number">1.2. </span><strong>Factorisation Complexity</strong><a class="headerlink" href="#factorisation-complexity" title="Link to this heading">#</a></h2>
-<p>This graph compares the estimated time required for factorising numbers of varying bit lengths using classical and quantum computers. The classical time is modeled exponentially, while the quantum time prediction follows a cubic relationship.</p>
-<div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
-</summary>
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
-<span class="n">classical_time</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mf">0.055</span> <span class="o">*</span> <span class="n">n</span><span class="p">)</span>
-<span class="n">quantum_time</span> <span class="o">=</span> <span class="n">n</span><span class="o">**</span><span class="mi">3</span>
-
-<span class="c1"># Plot</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">classical_time</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Classical Computer&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">quantum_time</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Quantum Computer (Future Prediction)&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Bit Length of Number to Factorize&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Time (Arbitrary Units)&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Comparison of Factorization Time: Classical vs. Quantum&quot;</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s2">&quot;bold&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s2">&quot;log&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s2">&quot;both&quot;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;0.7&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</details>
-<div class="cell_output docutils container">
-<img alt="../../_images/f8237f65b6f2e9f1f7ad41b2fc012f6527701a977bd4d48537e185912650d9be.png" src="../../_images/f8237f65b6f2e9f1f7ad41b2fc012f6527701a977bd4d48537e185912650d9be.png" />
-</div>
-</div>
 </section>
 </section>
 
@@ -530,22 +542,13 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../1helpful-docs/coin-analogy.html"
+       href="normalisation.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">2. </span><strong>The coin Analogy</strong></p>
+        <p class="prev-next-title"><span class="section-number">3. </span><strong>Normalisation</strong></p>
       </div>
-    </a>
-    <a class="right-next"
-       href="classic-vs-qubits.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">2. </span><strong>Classical vs Quantum Bits</strong></p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -563,8 +566,11 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#complexity-classes">1.1. <strong>Complexity Classes</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#factorisation-complexity">1.2. <strong>Factorisation Complexity</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#observer-effect-and-collapse">4.1. <strong>Observer Effect and Collapse</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wave-function-collapse">4.2. <strong>Wave Function Collapse</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explanation">4.2.1. Explanation</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
