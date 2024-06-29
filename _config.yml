@@ -6,7 +6,7 @@ author: Brianna Laird
 logo: logo.png
 copyright: "2024"
 # Patterns to skip when building the book. Can be glob-style (e.g. "*skip.ipynb")
-exclude_patterns: [my-running-guide.md]
+exclude_patterns: [my-running-guide.md, report-file.ipynb]
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
@@ -32,6 +32,7 @@ html:
   favicon: favicon.png
   use_issues_button: true
   use_repository_button: true
+  use_multitoc_numbering: false
 
 sphinx:
   extra_extensions:

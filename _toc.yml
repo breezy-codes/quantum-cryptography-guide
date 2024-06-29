@@ -5,12 +5,14 @@ format: jb-book
 root: README
 parts:
   - caption: Beginners Guides
-    numbered: false
+    numbered: true
     chapters:
       - file: files/1helpful-docs/cheat-sheet
       - file: files/1helpful-docs/coin-analogy
   - caption: Introduction to Quantum Mechanics
-    numbered: false
+    numbered: true
     chapters:
-      - file: files/2introduction/introduction-quantum
       - file: files/2introduction/classifying-computer-algorithms
+      - file: files/2introduction/classic-vs-qubits
+      - file: files/2introduction/normalisation.ipynb
+      - file: files/2introduction/wave-function.ipynb
