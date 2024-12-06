@@ -4,12 +4,12 @@
 format: jb-book
 root: README
 parts:
-  - caption: Beginners Guides
-    numbered: true
+  - caption: ""
+    numbered: false
     chapters:
       - file: files/1helpful-docs/cheat-sheet
       - file: files/1helpful-docs/coin-analogy
-  - caption: Introduction to Quantum Mechanics
+  - caption: Intro to Quantum
     numbered: true
     chapters:
       - file: files/2introduction/classifying-computer-algorithms

@@ -1,7 +1,6 @@
-# Symbol Cheat Sheet
+# **Maths Symbol Cheat Sheet**
 
-Before we start, here is a helpful Maths cheat sheet you can download and refer to when exploring the different maths concepts in Quantum Cryptography:
-
+Before we start, here is a helpful Maths cheat sheet you can download and refer to when exploring the different maths concepts in Cryptography:
 
 | Symbol                  | Description                           | Explanation                                                                                                                                                        |
 | ----------------------- | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -37,6 +36,11 @@ Before we start, here is a helpful Maths cheat sheet you can download and refer 
 | $\log(x)$               | Logarithm                             | Represents the logarithm of $x$﻿.                                                                                                                                  |
 | $C1, C2, …$             | Constraints                           | These are constraints that can be specified as different letters.                                                                                                  |
 | $(a, b)$                | Interval                              | Represents the range of values between $a$﻿ and $b$﻿.                                                                                                              |
+| $\mathbb{R}$            | Real numbers                          | Represents the set of all real numbers.                                                                                                                            |
+| $\mathbb{Z}$            | Integers                              | Represents the set of all integers.                                                                                                                                |
+| $\mathbb{N}$            | Natural numbers                       | Represents the set of all natural numbers.                                                                                                                         |
+| $\mathbb{Q}$            | Rational numbers                      | Represents the set of all rational numbers.                                                                                                                        |
+| $\mathbb{C}$            | Complex numbers                       | Represents the set of all complex numbers.                                                                                                                         |
 | $\lambda_h$             | Lambda parameter                      | A specific parameter indexed by $h$﻿.                                                                                                                              |
 | $\lambda$               | Lambda / Wavelength                   | A Greek letter commonly used in mathematics to represent eigenvalues, parameters, or constants.  <br>Denotes the distance between two successive points in a wave. |
 | $\alpha_i$              | Alpha parameter                       | A specific parameter indexed by $i$﻿.                                                                                                                              |
@@ -58,3 +62,14 @@ Before we start, here is a helpful Maths cheat sheet you can download and refer 
 | $\Delta$                | Incremental change                    | Denotes a change or difference between two values.                                                                                                                 |
 | $\int$                  | Integral                              | Represents the mathematical concept of an integral, involving the accumulation of quantities.                                                                      |
 | $\Omega$                | Omega                                 | Often used to represent various concepts in different contexts, such as solid angles or angular velocity.                                                          |
+| $\partial$              | Partial derivative                    | Represents the derivative of a function with respect to one of its variables, holding the others constant.                                                         |
+| $\nabla$                | Nabla / Del operator                  | Represents the gradient, divergence, or curl of a field.                                                                                                           |
+| $\approx$               | Approximately equal                   | Indicates that two values are nearly equal.                                                                                                                        |
+| $\propto$               | Proportional to                       | Indicates that one quantity is proportional to another.                                                                                                            |
+| $\sum_{i=1}^{n}$        | Summation notation                    | Represents the sum of a sequence of terms from $i=1$ to $n$.                                                                                                       |
+| $\prod_{i=1}^{n}$       | Product notation                      | Represents the product of a sequence of terms from $i=1$ to $n$.                                                                                                   |
+| $\int_{a}^{b}$          | Definite integral                     | Represents the integral of a function from $a$ to $b$.                                                                                                             |
+| $\oint$                 | Contour integral                      | Represents the integral of a function over a closed curve.                                                                                                         |
+| $\lim_{x \to a}$        | Limit                                 | Represents the value that a function approaches as the variable approaches a specified value.                                                                      |
+| $\frac{dy}{dx}$         | Derivative                            | Represents the rate of change of $y$ with respect to $x$.                                                                                                          |
+| $\binom{n}{k}$          | Binomial coefficient                  | Represents the number of ways to choose $k$ elements from a set of $n$ elements.                                                                                   |
