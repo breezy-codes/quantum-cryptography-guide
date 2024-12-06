@@ -14,15 +14,15 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
 
-    # Set up Python
-    - name: Set up Python
+    # Install dependencies
+    - name: Set up Python 3.11
       uses: actions/setup-python@v4
       with:
-        python-version: '3.8'
+        python-version: 3.11
 
-    # Install dependencies
-    - name: Install Jupyter Book
-      run: pip install jupyter-book ghp-import sphinx-proof
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
 
     # Build the Jupyter Book
     - name: Build the Jupyter Book
@@ -32,6 +32,13 @@ jobs:
     - name: Add CNAME file
       run: echo "quantum-crypto.breezy-codes.com" > _build/html/CNAME
 
-    # Deploy to GitHub Pages
+    # Upload the book's HTML as an artifact
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v2
+      with:
+        path: "_build/html"
+
+    # Deploy the book's HTML to GitHub Pages
     - name: Deploy to GitHub Pages
-      run: ghp-import -n -p -f _build/html
+      id: deployment
+      uses: actions/deploy-pages@v2
