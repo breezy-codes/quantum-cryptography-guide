@@ -37,7 +37,7 @@ a:hover {
 
 /* Sidebar links styling - change to bronze */
 .bd-sidebar-primary a {
-    color: var(--medium-purple) !important; /* Bronze color for sidebar links */
+    color: var(--light-purple) !important; /* Bronze color for sidebar links */
     font-weight: bold;
 }
 
@@ -47,7 +47,7 @@ a:hover {
 
 /* Sidebar headers and dividers: Bronze for accent */
 .sidebar-primary-item h2 {
-    color: var(--medium-purple); /* Bronze headers for sidebar */
+    color: var(--light-purple); /* Bronze headers for sidebar */
 }
 
 .sidebar-primary-item hr {
@@ -112,22 +112,8 @@ table th {
     background-color: white; /* Bronze header background */
 }
 
-/* Secondary sidebar links */
-.bd-sidebar-secondary a {
-    color: var(--medium-purple); /* Bronze color for links */
-}
-
-.bd-sidebar-secondary a:hover {
-    color: var(--light-purple); /* Neon green on hover */
-}
-
-/* Secondary sidebar headings */
-.bd-sidebar-secondary h2 {
-    color: var(--medium-purple); /* Bronze headings */
-}
-
 .bd-toc a {
-    color: var(--medium-purple); /* Bronze color for TOC links */
+    color: var(--light-purple); /* Bronze color for TOC links */
 }
 
 .bd-toc a:hover {
@@ -140,23 +126,12 @@ table th {
     font-weight: bold;
 }
 .toc-h2 a.nav-link {
-    color: var(--medium-purple) !important; /* Teal color when inactive */
+    color: var(--light-purple) !important; /* Teal color when inactive */
     font-weight: bold;
 }
 
 .toc-h2 a.nav-link.active:hover {
     color: var(--dark-purple) !important; /* Teal-green on hover */
-    font-weight: bold;
-}
-
-/* On-this-page section styling in sidebar */
-.bd-sidebar-secondary .onthispage {
-    color: var(--medium-purple) !important;
-    font-weight: bold;
-}
-
-.bd-sidebar-secondary .onthispage * {
-    color: var(--medium-purple) !important; /* Bronze for all nested elements */
     font-weight: bold;
 }
 
@@ -183,6 +158,20 @@ span.caption-text {
     font-size: 1.6em;
 }
 
+.toc-entry a.nav-link.active {
+    background-color: transparent;
+    box-shadow: inset max(3px,.1875rem,.12em) 0 0 var(--light-purple);
+    color: var(--light-purple);
+    font-weight: 600;
+  }
+
+nav.bd-links .current > a {
+    background-color: transparent;
+    box-shadow: inset max(3px,.1875rem,.12em) 0 0 var(--light-purple);
+    color: var(--light-purple);
+    font-weight: 600;
+  }
+
 header.bd-header.navbar a:hover {
     color: var(--light-purple) !important; /* Teal-green hover */
 }
@@ -208,6 +197,10 @@ html[data-theme="light"] {
     --pst-color-background: #fdfdff;
   }
 
+  a.current.reference.internal {
+    color: var(--light-purple) !important; /* Use the light purple variable */
+    font-weight: bold; /* Optional: make it bold for emphasis */
+}
 
 html[data-theme="dark"] {
     /* Primary color: Keep this as it is unless you want to change it */
@@ -323,3 +316,32 @@ html[data-theme="dark"] tbody tr.row-odd:hover {
 html[data-theme="dark"] tbody tr.row-even:hover {
     background-color: var(--dark-purple); /* Light purple color */
 }
+
+html[data-theme="dark"] .bd-header-article .btn {
+    color: var(--light-purple) !important;
+    background-color: transparent;
+}
+
+html[data-theme="dark"] .bd-sidebar-secondary .onthispage * {
+    color: var(--lighter-purple) !important;
+    font-weight: bold;
+}
+
+  html[data-theme="dark"] .bd-sidebar-secondary .onthispage {
+    color: var(--lighter-purple) !important;
+    font-weight: bold;
+}
+
+html[data-theme="dark"]  .toc-entry a.nav-link.active {
+    background-color: transparent;
+    box-shadow: inset max(3px,.1875rem,.12em) 0 0 var(--lighter-purple);
+    color: var(--lighter-purple);
+    font-weight: 600;
+  }
+
+nav.bd-links .current > a {
+    background-color: transparent;
+    box-shadow: inset max(3px,.1875rem,.12em) 0 0 var(--lighter-purple);
+    color: var(--lighter-purple);
+    font-weight: 600;
+  }
