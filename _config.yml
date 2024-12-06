@@ -33,6 +33,7 @@ html:
   use_issues_button: true
   use_repository_button: true
   use_multitoc_numbering: false
+  cname: quantum-crypto.breezy-codes.com  # Add your custom domain here
 
 sphinx:
   extra_extensions:

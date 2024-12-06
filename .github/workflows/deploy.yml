@@ -1,0 +1,37 @@
+name: Deploy Jupyter Book to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # Replace with the branch you use for your source files
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Checkout the repository
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    # Set up Python
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.8'
+
+    # Install dependencies
+    - name: Install Jupyter Book
+      run: pip install jupyter-book ghp-import
+
+    # Build the Jupyter Book
+    - name: Build the Jupyter Book
+      run: jupyter-book build .
+
+    # Ensure the CNAME file is in the built HTML directory
+    - name: Add CNAME file
+      run: echo "quantum-crypto.breezy-codes.com" > _build/html/CNAME
+
+    # Deploy to GitHub Pages
+    - name: Deploy to GitHub Pages
+      run: ghp-import -n -p -f _build/html
