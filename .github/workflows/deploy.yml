@@ -3,7 +3,7 @@ name: Deploy Jupyter Book to GitHub Pages
 on:
   push:
     branches:
-      - main  # Replace with the branch you use for your source files
+      - pages  # Replace with the branch you use for your source files
 
 jobs:
   deploy:
@@ -13,35 +13,35 @@ jobs:
       id-token: write
 
     steps:
-    # Checkout the repository
-    - name: Checkout repository
-      uses: actions/checkout@v3
+      # Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-    # Install dependencies
-    - name: Set up Python 3.11
-      uses: actions/setup-python@v4
-      with:
-        python-version: 3.11
+      # Install dependencies
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.11
 
-    - name: Install dependencies
-      run: |
-        pip install -r requirements.txt
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
 
-    # Build the Jupyter Book
-    - name: Build the Jupyter Book
-      run: jupyter-book build .
+      # Build the Jupyter Book
+      - name: Build the Jupyter Book
+        run: jupyter-book build .
 
-    # Ensure the CNAME file is in the built HTML directory
-    - name: Add CNAME file
-      run: echo "quantum-crypto.breezy-codes.com" > _build/html/CNAME
+      # Ensure the CNAME file is in the built HTML directory
+      - name: Add CNAME file
+        run: echo "cheat-sheets.breezy-codes.com" > _build/html/CNAME
 
-    # Upload the book's HTML as an artifact
-    - name: Upload artifact
-      uses: actions/upload-pages-artifact@v2
-      with:
-        path: "_build/html"
+      # Upload the book's HTML as an artifact (Updated to v3)
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "_build/html"
 
-    # Deploy the book's HTML to GitHub Pages
-    - name: Deploy to GitHub Pages
-      id: deployment
-      uses: actions/deploy-pages@v2
+      # Deploy the book's HTML to GitHub Pages (Updated to v4)
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
