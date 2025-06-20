@@ -58,13 +58,19 @@ code {
     color: var(--medium-purple); /* Muted orange */
 }
 
-/* Blockquotes: Orange background, white border-left, and teal text inside */
+/* Base styles (Light Mode) */
 blockquote {
-    background-color: var(--medium-purple); /* Bright orange background */
-    border-left: 4px solid #f0ece2; /* Off-white border on the left */
-    padding: 1rem; /* Padding for readability */
-    color: #f0ece2; /* Off-white text */
+    background-color: var(--lighter-purple);
+    border-left: 4px solid #f0ece2;
+    padding: 1rem;
+    color: #f0ece2;
 }
+
+/* Override for Dark Mode */
+html[data-theme="dark"] blockquote {
+    background-color: var(--medium-purple);
+}
+
 
 blockquote p {
     color: #282A36 !important; /* Teal text for paragraphs inside blockquote */
